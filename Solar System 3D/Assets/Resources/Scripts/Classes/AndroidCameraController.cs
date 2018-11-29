@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 
-public class AndroidCameraController : MonoBehaviour {
+public class AndroidCameraController : AndroidCameraControllerAbstraction {
 
     public float maxMovementSpeed;
     public GameObject cam;
-
-    float movementSpeed;
-    bool steerForward;
-    bool steerBackwards;
-    bool steerLeft;
-    bool steerRight;
 
     void Start() {
         maxMovementSpeed = maxMovementSpeed * PlayerPrefs.GetFloat ("CameraSpeed", 0.5f);
@@ -36,35 +30,35 @@ public class AndroidCameraController : MonoBehaviour {
 
     }      
 
-    public void moveForward() {
+    public override void moveForward() {
         steerForward = true;
     }
 
-    public void stopMovingForward() {
+    public override void stopMovingForward() {
         steerForward = false;
     }      
 
-    public void moveBackwards() {
+    public override void moveBackwards() {
         steerBackwards = true;
     }
 
-    public void stopMovingBackwards() {
+    public override void stopMovingBackwards() {
         steerBackwards = false;
     }
 
-    public void moveLeft() {
+    public override void moveLeft() {
         steerLeft = true;
     }
 
-    public void stopMovingLeft() {
+    public override void stopMovingLeft() {
         steerLeft = false;
     }
 
-    public void moveRight() {
+    public override void moveRight() {
         steerRight = true;
     }
 
-    public void stopMovingRight() {
+    public override void stopMovingRight() {
         steerRight = false;
     }
 
